@@ -1,4 +1,5 @@
 import { AppData } from "../types/app";
+import { Link } from "react-router-dom";
 
 interface AppItemProps {
 	app: AppData;
@@ -6,7 +7,7 @@ interface AppItemProps {
 }
 const AppItem: React.FC<AppItemProps> = ({ app }) => {
 	return (
-		<>
+		<Link to="/">
 			<hr />
 			<div>
 				{Object.entries(app).map((entry) => (
@@ -15,7 +16,7 @@ const AppItem: React.FC<AppItemProps> = ({ app }) => {
 					</div>
 				))}
 			</div>
-		</>
+		</Link>
 	);
 };
 

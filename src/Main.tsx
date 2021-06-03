@@ -1,28 +1,43 @@
-import React from "react";
+import React, { useContext } from "react";
+import {
+	BrowserRouter as Router,
+	Route,
+	Switch
+} from "react-router-dom";
+import { SWRConfig } from "swr";
+import { onErrorRetry, fetcher } from "./SWRConfig";
+
 import "./Main.css";
 
-import useSWR from "swr";
-import { config } from "./config";
-import AppItem from "./components/appItem";
-import { AppData } from "./types/app";
+import AppDetails from "./components/AppDetails";
+import IndexView from "./components/IndexView";
+import { AllAppsDataProvider } from "./components/AllAppsDataProvider";
 
-function Main() {
-	const { data, error } = useSWR<AppData[]>(config.getAllApps);
-
-	if (!data) {
-		return <div>loading</div>;
-	}
-	if (error) {
-		return <div>Error while fetching data</div>;
-	}
+const Main = () => {
 
 	return (
-		<>
-			{data.map((item: AppData) => (
-				<AppItem app={item} key={item.id} />
-			))}
-		</>
-	);
+		<SWRConfig value={{
+			onErrorRetry,
+			fetcher,
+			revalidateOnFocus: false
+		}}>
+			<AllAppsDataProvider>
+				<Router>
+					<Switch>
+						<Route exact path="/app/:appId" render={(props) => {
+							return (
+								<AppDetails appId={props.match.params.appId}/>
+							)
+						}}>
+						</Route>
+						<Route path="/">
+							<IndexView/>
+						</Route>
+					</Switch>
+				</Router>
+			</AllAppsDataProvider>
+		</SWRConfig>
+);
 }
 
 export default Main;
