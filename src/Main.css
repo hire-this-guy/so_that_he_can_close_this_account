@@ -1,5 +1,8 @@
 :root {
 	--border-radius: 3px;
+
+	--c-accent: #af47d5;
+	--c-line: #ccc;
 }
 
 * {

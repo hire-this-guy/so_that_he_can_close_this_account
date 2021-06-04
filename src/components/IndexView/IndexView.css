@@ -1,21 +1,20 @@
-:root {
-	--c-input-focus: blue;
-}
-
 .search {
 	margin: 1em;
 	display: flex;
+	height: 50vh;
 }
 .search__input {
-	width: 100%;
-	border-radius: var(--border-radius);
+	width: 60%;
 	box-shadow: none;
-	border: 1px solid currentColor;
+	border: none;
+	border-bottom: 1px solid var(--c-line);
 	font-size: 1.5em;
-	padding: 0.5em;
+	padding: 0.5em 0;
+	align-self: center;
+	margin: 0 auto;
 }
 
 .search__input:focus {
 	outline: none;
-	box-shadow: 0 -4px 0 0px var(--c-input-focus) inset;
+	box-shadow: 0 -4px 0 0px var(--c-accent) inset;
 }
