@@ -5,3 +5,18 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 	color: var(--c-text);
 }
+
+.btn {
+	appearance: none;
+	background: none;
+	padding: 1em;
+	font-size: 0.5em; /* TODO variables */
+	border: 1px solid;
+	border-radius: var(--border-radius);
+}
+input:focus,
+.btn:focus,
+.btn:hover {
+	outline: none;
+	box-shadow: 0 -4px 0 0 var(--c-accent) inset;
+}
