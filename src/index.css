@@ -34,3 +34,7 @@ button:hover {
 .button--primary:hover {
 	box-shadow: 0 -4px 0 0 var(--c-white) inset;
 }
+
+body {
+	padding-bottom: 5em;
+}
