@@ -25,6 +25,7 @@ const IndexView = () => {
 	let filteredData = [...data];
 
 	const searcher = (needle: string, haystack: string): boolean => {
+		// TODO filter nonword characters
 		return haystack.toLowerCase().indexOf(needle.toLowerCase()) !== -1
 	}
 

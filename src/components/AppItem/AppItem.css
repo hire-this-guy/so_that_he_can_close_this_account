@@ -12,6 +12,7 @@
 	max-height: 100px;
 	max-width: 100px;
 	align-self: center;
+	border-radius: 2px;
 }
 
 .AppItem__info {
