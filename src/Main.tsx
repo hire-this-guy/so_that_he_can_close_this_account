@@ -27,7 +27,7 @@ const Main = () => {
 							render={(props) => {
 								return <AppDetails appId={props.match.params.appId} />;
 							}}
-						></Route>
+						/>
 						<Route path="/">
 							<IndexView />
 						</Route>

@@ -1,0 +1,23 @@
+.appItem {
+	display: flex;
+	text-decoration: none;
+	border: 1px solid;
+	border-radius: 3px;
+	margin: 1em;
+	padding: 0.5em;
+	color: inherit;
+}
+
+.appItem__img {
+	max-height: 100px;
+	max-width: 100px;
+	align-self: center;
+}
+
+.appItem__info {
+	margin-left: 1em;
+}
+
+.appItem__info h2 {
+	margin-top: 0;
+} /* TODO normalization */
