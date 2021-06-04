@@ -3,6 +3,7 @@ import ReactMarkdown from "react-markdown";
 import gfm from 'remark-gfm';
 import useSWR from "swr";
 import { rawFetcher } from "../SWRConfig";
+import ErrorMessage from "./ErrorMessage/ErrorMessage";
 
 interface MarkdownViewProps {
     url: string
@@ -13,7 +14,12 @@ const MarkdownView: React.FC<MarkdownViewProps> = ({ url}) => {
 
     // TODO check loading condition
     if (error) {
-        return (<div>Error getting markdown</div>)
+        return (<ErrorMessage
+            action={() => window.location.reload()}
+            actionLabel="Try again"
+        >
+            Error fetching readme
+        </ErrorMessage>)
     }
     if (!data) {
         return (<div>Markdown loading...</div>)

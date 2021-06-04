@@ -1,0 +1,16 @@
+.ErrorMessage {
+	margin: 5em 3em;
+	font-size: var(--fs-big);
+	text-align: center;
+}
+
+/* TODO hover styles */
+.ErrorMessage__button {
+	appearance: none;
+	background: none;
+	margin-top: 2em;
+	padding: 1em;
+	font-size: 0.5em; /* TODO variables */
+	border: 1px solid;
+	border-radius: var(--border-radius);
+}

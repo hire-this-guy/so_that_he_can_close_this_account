@@ -1,24 +1,33 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import useSWR from "swr";
 import { AppData } from "../../types/app";
 import { config } from "../../config";
 import { AllAppsDataContext } from "../AllAppsDataProvider";
 import AppItem from "../AppItem/AppItem";
 import "./IndexView.css"
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
 
 const IndexView = () => {
 	const { setAllAppsData } = useContext(AllAppsDataContext);
 	const { data, error } = useSWR<AppData[]>(config.getAllApps);
 	const [searchVal, setSearchVal] = useState<string>("")
+	const searchRef = useRef<HTMLInputElement>(null)
 
 	useEffect(() => data && setAllAppsData(data));
 
 	if (error) {
-		return <div>Error while fetching data</div>;
+		return <ErrorMessage
+			action={() => window.location.reload()}
+			actionLabel="Try again"
+		>
+			Error while fetching data
+		</ErrorMessage>;
 	}
 	if (!data) {
 		return <div>loading</div>;
 	}
+
+	// Searching
 
 	const inputOnChane = (event: React.ChangeEvent<HTMLInputElement>) => setSearchVal(event.currentTarget.value);
 
@@ -35,15 +44,26 @@ const IndexView = () => {
 		})
 	}
 
+	const clearSearch = () => {
+		setSearchVal("");
+		searchRef.current?.focus()
+	}
+
 	return (
 		<main className="IndexView">
 			<div className="search">
-				<input type="search" placeholder="search" className="search__input" onChange={inputOnChane}/>
+				<input type="search" placeholder="search" className="search__input" ref={searchRef} onChange={inputOnChane} value={searchVal}/>
 			</div>
 			{filteredData.length > 0 && filteredData.map((item: AppData) => (
 				<AppItem app={item} key={item.id}/>
 			))}
-			{filteredData.length === 0 && <div>No results found for {searchVal}</div>}
+			{filteredData.length === 0 &&
+			<ErrorMessage
+				action={clearSearch}
+				actionLabel="Clear search">
+					No results found
+			</ErrorMessage>
+			}
 		</main>
 	);
 };
