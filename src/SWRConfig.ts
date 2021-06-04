@@ -12,6 +12,18 @@ export const fetcher = (url: string) =>
 		return response.json();
 	});
 
+// TODO factory
+// Copypasta of fetcher that does not try to parse json
+export const rawFetcher = (url: string) =>
+	fetch(url).then((response) => {
+		if (response.status >= 400) {
+			const err = {
+				status: response.status,
+			};
+			return Promise.reject(err);
+		}
+		return response.text()
+	});
 // Do not retry on 4xx errors
 export const onErrorRetry: SWRConfiguration["onErrorRetry"] = (
 	error,

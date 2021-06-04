@@ -1,8 +1,9 @@
-import { AppData } from "../types/app";
+import { AppData } from "../../types/app";
 import useSWR from "swr";
-import { config } from "../config";
+import { config } from "../../config";
 import React, { useContext } from "react";
-import { AllAppsDataContext } from "./AllAppsDataProvider";
+import { AllAppsDataContext } from "../AllAppsDataProvider";
+import MarkdownView from "../Markdown";
 
 interface AppItemProps {
 	app?: AppData;
@@ -45,8 +46,9 @@ const AppDetails: React.FC<AppItemProps> = ({ app, appId }) => {
 						</div>
 					))}
 			</div>
+			{dataToDisplay.readmeURL && <MarkdownView url={dataToDisplay.readmeURL}/>}
 		</>
 	);
-};
+}
 
 export default AppDetails;

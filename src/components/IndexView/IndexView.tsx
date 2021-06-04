@@ -13,11 +13,11 @@ const IndexView = () => {
 
 	useEffect(() => data && setAllAppsData(data));
 
-	if (!data) {
-		return <div>loading</div>;
-	}
 	if (error) {
 		return <div>Error while fetching data</div>;
+	}
+	if (!data) {
+		return <div>loading</div>;
 	}
 
 	const inputOnChane = (event: React.ChangeEvent<HTMLInputElement>) => setSearchVal(event.currentTarget.value);

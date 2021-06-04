@@ -5,9 +5,9 @@ import { onErrorRetry, fetcher } from "./SWRConfig";
 
 import "./Main.css";
 
-import AppDetails from "./components/AppDetails";
 import IndexView from "./components/IndexView/IndexView";
 import { AllAppsDataProvider } from "./components/AllAppsDataProvider";
+import AppDetails from "./components/AppDetailsView/AppDetails";
 
 const Main = () => {
 	return (
