@@ -1,10 +1,9 @@
 import React, { useContext, useEffect } from "react";
 import useSWR from "swr";
-import { AppData } from "../types/app";
-import { Link } from "react-router-dom";
-import { config } from "../config";
-import { AllAppsDataContext } from "./AllAppsDataProvider";
-import AppItem from "./AppItem/AppItem";
+import { AppData } from "../../types/app";
+import { config } from "../../config";
+import { AllAppsDataContext } from "../AllAppsDataProvider";
+import AppItem from "../AppItem/AppItem";
 
 const IndexView = () => {
 	const { setAllAppsData } = useContext(AllAppsDataContext);
@@ -21,6 +20,7 @@ const IndexView = () => {
 
 	return (
 		<>
+			<input type="search" placeholder="search"/>
 			{data.map((item: AppData) => (
 				<AppItem app={item} key={item.id}/>
 			))}

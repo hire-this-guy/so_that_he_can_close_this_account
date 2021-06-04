@@ -1,4 +1,4 @@
-.appItem {
+.AppItem {
 	display: flex;
 	text-decoration: none;
 	border: 1px solid;
@@ -8,16 +8,16 @@
 	color: inherit;
 }
 
-.appItem__img {
+.AppItem__img {
 	max-height: 100px;
 	max-width: 100px;
 	align-self: center;
 }
 
-.appItem__info {
+.AppItem__info {
 	margin-left: 1em;
 }
 
-.appItem__info h2 {
+.AppItem__info h2 {
 	margin-top: 0;
 } /* TODO normalization */
