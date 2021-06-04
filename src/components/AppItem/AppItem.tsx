@@ -15,7 +15,7 @@ const AppItem: React.FC<AppItemProps> = ({ app }) => {
 			</div>
 			<div className="AppItem__info">
 				<h2 className="AppItem__name">{app.name}</h2>
-				{app.author && (<div>by: {app.author}</div>)}
+				{app.author && (<div>{app.author}</div>)}
 			</div>
 		</Link>
 	);

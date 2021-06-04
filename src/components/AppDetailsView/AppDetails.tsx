@@ -4,13 +4,14 @@ import { config } from "../../config";
 import React, { useContext } from "react";
 import { AllAppsDataContext } from "../AllAppsDataProvider";
 import MarkdownView from "../Markdown";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import "./AppDetailsView.css"
 
 interface AppItemProps {
-	app?: AppData;
 	appId?: AppData["id"];
 }
 
-const AppDetails: React.FC<AppItemProps> = ({ app, appId }) => {
+const AppDetails: React.FC<AppItemProps> = ({ appId }) => {
 	const { allAppsData } = useContext(AllAppsDataContext);
 
 	// TODO use memo?
@@ -28,7 +29,12 @@ const AppDetails: React.FC<AppItemProps> = ({ app, appId }) => {
 	const dataToDisplay = getDataForId(appId) ? getDataForId(appId) : data;
 
 	if (error) {
-		return <div>Fetching error</div>;
+		return (<ErrorMessage
+			action={() => window.location.reload()}
+			actionLabel="Try again"
+		>
+			Error fetching readme
+		</ErrorMessage>)
 	}
 
 	if (!dataToDisplay) {
@@ -36,18 +42,22 @@ const AppDetails: React.FC<AppItemProps> = ({ app, appId }) => {
 	}
 
 	return (
-		<>
-			<h1>{dataToDisplay.name}</h1>
-			<div>
-				{dataToDisplay &&
-					Object.entries(dataToDisplay).map((entry) => (
-						<div>
-							{entry[0]}: {entry[1]}
-						</div>
-					))}
-			</div>
-			{dataToDisplay.readmeURL && <MarkdownView url={dataToDisplay.readmeURL}/>}
-		</>
+		<div className="AppDetailsView">
+			<header className="AppDetailsView__header">
+				<img src={dataToDisplay.iconURL} alt={dataToDisplay.name} className="AppDetailsView__img"/>
+				<h1 className="AppDetailsView__title">{dataToDisplay.name}</h1>
+				<p className="AppDetailsView__description">
+					{dataToDisplay.description}
+				</p>
+
+				<p className="AppDetailsView__description">
+					{dataToDisplay.author && (<span>author: {dataToDisplay.author} </span>)}
+					version: {dataToDisplay.version }
+					{dataToDisplay.url && ( <a href={dataToDisplay.url}>homepage</a>)}
+				</p>
+			</header>
+			{dataToDisplay.readmeURL && <MarkdownView className="AppDetailsView__readme" url={dataToDisplay.readmeURL}/>}
+		</div>
 	);
 }
 

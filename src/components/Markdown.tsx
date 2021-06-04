@@ -6,10 +6,11 @@ import { rawFetcher } from "../SWRConfig";
 import ErrorMessage from "./ErrorMessage/ErrorMessage";
 
 interface MarkdownViewProps {
-    url: string
+    url: string;
+    className?: string;
 }
 
-const MarkdownView: React.FC<MarkdownViewProps> = ({ url}) => {
+const MarkdownView: React.FC<MarkdownViewProps> = ({ url, className}) => {
     const {data, error} = useSWR<string>(url, rawFetcher);
 
     // TODO check loading condition
@@ -24,6 +25,10 @@ const MarkdownView: React.FC<MarkdownViewProps> = ({ url}) => {
     if (!data) {
         return (<div>Markdown loading...</div>)
     }
-    return (<ReactMarkdown remarkPlugins={[gfm]} children={data}/>)
+    return (
+        <div className={className}>
+            <ReactMarkdown remarkPlugins={[gfm]} children={data}/>
+        </div>
+    )
 }
 export default MarkdownView

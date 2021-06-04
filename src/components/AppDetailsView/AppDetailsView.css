@@ -1,0 +1,21 @@
+.AppDetailsView {
+	max-width: 80em;
+	margin: 0 auto;
+	padding: 4em;
+}
+.AppDetailsView__header {
+	text-align: center;
+}
+
+.AppDetailsView__img {
+	max-height: 114px;
+	max-width: 114px;
+}
+
+.AppDetailsView__title {
+	font-weight: normal;
+}
+
+.AppDetailsView__readme {
+	margin-top: 4em;
+}
