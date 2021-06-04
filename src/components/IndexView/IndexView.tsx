@@ -36,7 +36,7 @@ const IndexView = () => {
 	}
 
 	return (
-		<>
+		<main className="IndexView">
 			<div className="search">
 				<input type="search" placeholder="search" className="search__input" onChange={inputOnChane}/>
 			</div>
@@ -44,7 +44,7 @@ const IndexView = () => {
 				<AppItem app={item} key={item.id}/>
 			))}
 			{filteredData.length === 0 && <div>No results found for {searchVal}</div>}
-		</>
+		</main>
 	);
 };
 
