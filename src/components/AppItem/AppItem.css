@@ -7,10 +7,15 @@
 	padding: 0.5em;
 	color: inherit;
 }
+.AppItem__img-wrapper {
+	display: flex;
+	width: 100px;
+	height: 100px;
+}
 
 .AppItem__img {
-	max-height: 100px;
-	max-width: 100px;
+	max-height: 100%;
+	max-width: 100%;
 	align-self: center;
 	border-radius: 2px;
 }
