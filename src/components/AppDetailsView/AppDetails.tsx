@@ -47,7 +47,9 @@ const AppDetails: React.FC<AppItemProps> = ({ appId }) => {
 			<TopBar/>
 			<div className="AppDetailsView">
 				<header className="AppDetailsView__header">
-					<img src={dataToDisplay.iconURL} alt={dataToDisplay.name} className="AppDetailsView__img"/>
+					<div className="AppDetailsView__img-wrapper">
+						<img src={dataToDisplay.iconURL} alt={dataToDisplay.name} className="AppDetailsView__img"/>
+					</div>
 					<h1 className="AppDetailsView__title">{dataToDisplay.name}</h1>
 					<p className="AppDetailsView__description">
 						{dataToDisplay.description}

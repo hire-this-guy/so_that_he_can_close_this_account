@@ -4,16 +4,22 @@
 	padding: 6em 4em 0;
 }
 .AppDetailsView__header {
-	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
-
+.AppDetailsView__img-wrapper {
+	/* determined by the size of the smallest image */
+	height: 114px;
+	width: 114px;
+}
 .AppDetailsView__img {
-	max-height: 114px;
-	max-width: 114px;
+	max-height: 100%;
+	max-width: 100%;
 }
 
 .AppDetailsView__title {
-	font-weight: normal;
+	font-weight: 200;
 }
 
 .AppDetailsView__readme {
