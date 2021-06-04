@@ -1,8 +1,25 @@
 :root {
 	--border-radius: 3px;
 
-	--c-accent: #af47d5;
-	--c-line: #ccc;
+	/* Palette */
+	--c-white: #fff;
+	--c-pale: #f5f2f5;
+	--c-light: #d4d4d4;
+	--c-medium: #b0a5a9;
+	--c-accent: #e6378b;
+	--c-accent-faded: #ba1866;
+	--c-accent-faded2: #a3155c;
+	--c-accent-faded3: #660735;
+	--c-dark: #232f2f;
+	--c-vdark: #0a080a;
+
+	/* Durations */
+	--t-normal: 0.2s;
+
+	/* Colors */
+	--c-line: var(--c-light);
+	--c-text: var(--c-dark);
+	--c-line-lighten: var(--c-darken);
 }
 
 * {

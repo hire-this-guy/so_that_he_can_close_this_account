@@ -8,12 +8,20 @@
 	margin: 1em;
 	padding: var(--spacing);
 	color: inherit;
+	/*transition: box-shaddow var(--t-normal);*/
+}
+/*.AppItem:hover {*/
+/*	box-shadow:0 2px 4px -2px var(--c-light);*/
+/*}*/
+.AppItem:hover .AppItem__img-wrapper {
+	transform: scale(1.2);
 }
 
 .AppItem__img-wrapper {
 	display: flex;
 	width: 100px;
 	height: 100px;
+	transition: all var(--t-normal);
 }
 
 .AppItem__img {
