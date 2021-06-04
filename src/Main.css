@@ -14,6 +14,7 @@
 	--c-vdark: #0a080a;
 
 	/* Durations */
+	--t-fast: 0.1s;
 	--t-normal: 0.2s;
 
 	/* Colors */

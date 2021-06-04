@@ -55,6 +55,7 @@ const AppDetails: React.FC<AppItemProps> = ({ appId }) => {
 					version: {dataToDisplay.version }
 					{dataToDisplay.url && ( <a href={dataToDisplay.url}>homepage</a>)}
 				</p>
+				<button className="button--primary">Install</button>
 			</header>
 			{dataToDisplay.readmeURL && <MarkdownView className="AppDetailsView__readme" url={dataToDisplay.readmeURL}/>}
 		</div>

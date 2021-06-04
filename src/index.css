@@ -6,17 +6,31 @@ body {
 	color: var(--c-text);
 }
 
-.btn {
+button {
 	appearance: none;
 	background: none;
-	padding: 1em;
-	font-size: 0.5em; /* TODO variables */
-	border: 1px solid;
+	padding: 1rem;
+	font-size: 1.2rem; /* TODO variables */
+	border: 1px solid var(--c-vdark);
 	border-radius: var(--border-radius);
 }
+.button--primary {
+	background: var(--c-accent);
+	color: var(--c-white);
+}
+
+button,
+input {
+	transition: box-shadow var(--t-fast);
+}
+
 input:focus,
-.btn:focus,
-.btn:hover {
+button:focus,
+button:hover {
 	outline: none;
 	box-shadow: 0 -4px 0 0 var(--c-accent) inset;
+}
+.button--primary:focus,
+.button--primary:hover {
+	box-shadow: 0 -4px 0 0 var(--c-white) inset;
 }
