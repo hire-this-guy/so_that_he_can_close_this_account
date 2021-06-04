@@ -9,6 +9,7 @@
 	padding: var(--spacing);
 	color: inherit;
 }
+
 .AppItem__img-wrapper {
 	display: flex;
 	width: 100px;
@@ -26,6 +27,7 @@
 	margin-left: var(--spacing);
 }
 
-.AppItem__info h2 {
+.AppItem__name {
+	font-weight: normal;
 	margin-top: 0;
 } /* TODO normalization */

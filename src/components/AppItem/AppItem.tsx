@@ -9,14 +9,13 @@ interface AppItemProps {
 const AppItem: React.FC<AppItemProps> = ({ app }) => {
 	return (
 		// TODO single place for lin generation?
-		<Link to={`/app/${app.id}`} className="AppItem">
+		<Link to={`/app/${app.id}`} className="AppItem" title={`Version: ${app.version}`}>
 			<div className="AppItem__img-wrapper">
 				<img src={app.iconURL} alt={app.name} className="AppItem__img"/>
 			</div>
 			<div className="AppItem__info">
-				<h2>{app.name}</h2>
-				<div>{app.author}</div>
-				<small>{app.version}</small>
+				<h2 className="AppItem__name">{app.name}</h2>
+				{app.author && (<div>by: {app.author}</div>)}
 			</div>
 		</Link>
 	);
