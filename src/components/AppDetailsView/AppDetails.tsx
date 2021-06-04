@@ -6,6 +6,7 @@ import { AllAppsDataContext } from "../AllAppsDataProvider";
 import MarkdownView from "../Markdown";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import "./AppDetailsView.css"
+import TopBar from "../TopBar/TopBar";
 
 interface AppItemProps {
 	appId?: AppData["id"];
@@ -42,23 +43,26 @@ const AppDetails: React.FC<AppItemProps> = ({ appId }) => {
 	}
 
 	return (
-		<div className="AppDetailsView">
-			<header className="AppDetailsView__header">
-				<img src={dataToDisplay.iconURL} alt={dataToDisplay.name} className="AppDetailsView__img"/>
-				<h1 className="AppDetailsView__title">{dataToDisplay.name}</h1>
-				<p className="AppDetailsView__description">
-					{dataToDisplay.description}
-				</p>
+		<>
+			<TopBar/>
+			<div className="AppDetailsView">
+				<header className="AppDetailsView__header">
+					<img src={dataToDisplay.iconURL} alt={dataToDisplay.name} className="AppDetailsView__img"/>
+					<h1 className="AppDetailsView__title">{dataToDisplay.name}</h1>
+					<p className="AppDetailsView__description">
+						{dataToDisplay.description}
+					</p>
 
-				<p className="AppDetailsView__description">
-					{dataToDisplay.author && (<span>author: {dataToDisplay.author} </span>)}
-					version: {dataToDisplay.version }
-					{dataToDisplay.url && ( <a href={dataToDisplay.url}>homepage</a>)}
-				</p>
-				<button className="button--primary">Install</button>
-			</header>
-			{dataToDisplay.readmeURL && <MarkdownView className="AppDetailsView__readme" url={dataToDisplay.readmeURL}/>}
-		</div>
+					<p className="AppDetailsView__description">
+						{dataToDisplay.author && (<span>author: {dataToDisplay.author} </span>)}
+						version: {dataToDisplay.version }
+						{dataToDisplay.url && ( <a href={dataToDisplay.url}>homepage</a>)}
+					</p>
+					<button className="button--primary">Install</button>
+				</header>
+				{dataToDisplay.readmeURL && <MarkdownView className="AppDetailsView__readme" url={dataToDisplay.readmeURL}/>}
+			</div>
+		</>
 	);
 }
 

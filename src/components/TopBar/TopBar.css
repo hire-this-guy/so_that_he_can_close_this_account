@@ -1,0 +1,14 @@
+.TopBar {
+	border-bottom: 1px solid var(--c-pale);
+}
+.TopBar__link {
+	display: inline-block;
+	padding: 1em;
+	color: var(--c-light);
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.TopBar__link:hover {
+	color: var(--c-medium);
+}

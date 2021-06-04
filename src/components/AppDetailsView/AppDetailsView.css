@@ -1,7 +1,7 @@
 .AppDetailsView {
 	max-width: 80em;
 	margin: 0 auto;
-	padding: 4em;
+	padding: 6em 4em 0;
 }
 .AppDetailsView__header {
 	text-align: center;
