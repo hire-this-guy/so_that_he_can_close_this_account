@@ -4,6 +4,7 @@ import gfm from 'remark-gfm';
 import useSWR from "swr";
 import { rawFetcher } from "../SWRConfig";
 import ErrorMessage from "./ErrorMessage/ErrorMessage";
+import Loading from "./Loading/Loading";
 
 interface MarkdownViewProps {
     url: string;
@@ -13,7 +14,6 @@ interface MarkdownViewProps {
 const MarkdownView: React.FC<MarkdownViewProps> = ({ url, className}) => {
     const {data, error} = useSWR<string>(url, rawFetcher);
 
-    // TODO check loading condition
     if (error) {
         return (<ErrorMessage
             action={() => window.location.reload()}
@@ -22,9 +22,11 @@ const MarkdownView: React.FC<MarkdownViewProps> = ({ url, className}) => {
             Error fetching readme
         </ErrorMessage>)
     }
+
     if (!data) {
-        return (<div>Markdown loading...</div>)
+        return <Loading/>
     }
+
     return (
         <div className={className}>
             <ReactMarkdown className="markdown-body" remarkPlugins={[gfm]} children={data}/>

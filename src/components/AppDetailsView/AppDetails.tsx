@@ -7,6 +7,7 @@ import MarkdownView from "../Markdown";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import "./AppDetailsView.css"
 import TopBar from "../TopBar/TopBar";
+import Loading from "../Loading/Loading";
 
 interface AppItemProps {
 	appId?: AppData["id"];
@@ -29,6 +30,7 @@ const AppDetails: React.FC<AppItemProps> = ({ appId }) => {
 	);
 	const dataToDisplay = getDataForId(appId) ? getDataForId(appId) : data;
 
+
 	if (error) {
 		return (<ErrorMessage
 			action={() => window.location.reload()}
@@ -39,7 +41,7 @@ const AppDetails: React.FC<AppItemProps> = ({ appId }) => {
 	}
 
 	if (!dataToDisplay) {
-		return <div>loading</div>;
+		return <Loading/>;
 	}
 
 	return (

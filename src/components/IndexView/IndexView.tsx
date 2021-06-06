@@ -6,6 +6,7 @@ import { AllAppsDataContext } from "../AllAppsDataProvider";
 import AppItem from "../AppItem/AppItem";
 import "./IndexView.css"
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import Loading from "../Loading/Loading";
 
 const IndexView = () => {
 	const { setAllAppsData } = useContext(AllAppsDataContext);
@@ -24,7 +25,7 @@ const IndexView = () => {
 		</ErrorMessage>;
 	}
 	if (!data) {
-		return <div>loading</div>;
+		return <Loading/>
 	}
 
 	// Searching
