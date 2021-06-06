@@ -3,7 +3,9 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { SWRConfig } from "swr";
 import { onErrorRetry, fetcher } from "./SWRConfig";
 
+import "../node_modules/normalize.css/normalize.css";
 import "./Main.css";
+import "../node_modules/github-markdown-css/github-markdown.css";
 
 import IndexView from "./components/IndexView/IndexView";
 import { AllAppsDataProvider } from "./components/AllAppsDataProvider";
