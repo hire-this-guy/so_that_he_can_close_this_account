@@ -1,12 +1,13 @@
 .AppDetailsView {
 	max-width: 80em;
 	margin: 0 auto;
-	padding: 6em 4em 0;
+	padding: 0 4em;
 }
 .AppDetailsView__header {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	margin-top: 6em;
 }
 .AppDetailsView__img-wrapper {
 	/* determined by the size of the smallest image */

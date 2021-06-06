@@ -3,7 +3,7 @@
 }
 .TopBar__link {
 	display: inline-block;
-	padding: 1em;
+	padding: 1em 1em 1em 0.1em;
 	color: var(--c-light);
 	text-decoration: none;
 	text-transform: uppercase;
