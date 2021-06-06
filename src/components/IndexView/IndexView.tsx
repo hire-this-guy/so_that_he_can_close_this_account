@@ -15,6 +15,9 @@ const IndexView = () => {
 	const searchRef = useRef<HTMLInputElement>(null)
 
 	useEffect(() => data && setAllAppsData(data));
+	useEffect(() => {
+		document.title = config.documentTitle;
+	});
 
 	if (error) {
 		return <ErrorMessage

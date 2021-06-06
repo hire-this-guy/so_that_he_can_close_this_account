@@ -1,7 +1,7 @@
 import { AppData } from "../../types/app";
 import useSWR from "swr";
 import { config } from "../../config";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { AllAppsDataContext } from "../AllAppsDataProvider";
 import MarkdownView from "../Markdown/Markdown";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
@@ -29,6 +29,10 @@ const AppDetails: React.FC<AppItemProps> = ({ appId }) => {
 		getDataForId(appId) ? null : config.getApp(appId!)
 	);
 	const dataToDisplay = getDataForId(appId) ? getDataForId(appId) : data;
+
+	useEffect(() => {
+		document.title = dataToDisplay?.name ?? config.documentTitle;
+	});
 
 	if (error) {
 		return (
