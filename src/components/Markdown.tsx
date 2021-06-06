@@ -27,7 +27,7 @@ const MarkdownView: React.FC<MarkdownViewProps> = ({ url, className}) => {
     }
     return (
         <div className={className}>
-            <ReactMarkdown remarkPlugins={[gfm]} children={data}/>
+            <ReactMarkdown className="markdown-body" remarkPlugins={[gfm]} children={data}/>
         </div>
     )
 }
