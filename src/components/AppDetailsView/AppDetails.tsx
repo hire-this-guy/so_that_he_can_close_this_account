@@ -3,9 +3,9 @@ import useSWR from "swr";
 import { config } from "../../config";
 import React, { useContext } from "react";
 import { AllAppsDataContext } from "../AllAppsDataProvider";
-import MarkdownView from "../Markdown";
+import MarkdownView from "../Markdown/Markdown";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
-import "./AppDetailsView.css"
+import "./AppDetailsView.css";
 import TopBar from "../TopBar/TopBar";
 import Loading from "../Loading/Loading";
 
@@ -30,18 +30,19 @@ const AppDetails: React.FC<AppItemProps> = ({ appId }) => {
 	);
 	const dataToDisplay = getDataForId(appId) ? getDataForId(appId) : data;
 
-
 	if (error) {
-		return (<ErrorMessage
-			action={() => window.location.reload()}
-			actionLabel="Try again"
-		>
-			Error fetching readme
-		</ErrorMessage>)
+		return (
+			<ErrorMessage
+				action={() => window.location.reload()}
+				actionLabel="Try again"
+			>
+				Error fetching readme
+			</ErrorMessage>
+		);
 	}
 
 	if (!dataToDisplay) {
-		return <Loading/>;
+		return <Loading />;
 	}
 
 	return (
@@ -50,7 +51,11 @@ const AppDetails: React.FC<AppItemProps> = ({ appId }) => {
 				<TopBar />
 				<header className="AppDetailsView__header">
 					<div className="AppDetailsView__img-wrapper">
-						<img src={dataToDisplay.iconURL} alt={dataToDisplay.name} className="AppDetailsView__img"/>
+						<img
+							src={dataToDisplay.iconURL}
+							alt={dataToDisplay.name}
+							className="AppDetailsView__img"
+						/>
 					</div>
 					<h1 className="AppDetailsView__title">{dataToDisplay.name}</h1>
 					<p className="AppDetailsView__description">
@@ -58,16 +63,23 @@ const AppDetails: React.FC<AppItemProps> = ({ appId }) => {
 					</p>
 
 					<p className="AppDetailsView__description">
-						{dataToDisplay.author && (<span>author: {dataToDisplay.author} </span>)}
-						version: {dataToDisplay.version }
-						{dataToDisplay.url && ( <a href={dataToDisplay.url}>homepage</a>)}
+						{dataToDisplay.author && (
+							<span>author: {dataToDisplay.author} </span>
+						)}
+						version: {dataToDisplay.version}
+						{dataToDisplay.url && <a href={dataToDisplay.url}>homepage</a>}
 					</p>
 					<button className="button--primary">Install</button>
 				</header>
-				{dataToDisplay.readmeURL && <MarkdownView className="AppDetailsView__readme" url={dataToDisplay.readmeURL}/>}
+				{dataToDisplay.readmeURL && (
+					<MarkdownView
+						className="AppDetailsView__readme"
+						url={dataToDisplay.readmeURL}
+					/>
+				)}
 			</div>
 		</>
 	);
-}
+};
 
 export default AppDetails;
