@@ -7,6 +7,7 @@ import AppItem from "../AppItem/AppItem";
 import "./IndexView.css"
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import Loading from "../Loading/Loading";
+import SmallHeader from "../Markdown/SmallHeader/SmallHeader";
 
 const IndexView = () => {
 	const { setAllAppsData } = useContext(AllAppsDataContext);
@@ -53,15 +54,25 @@ const IndexView = () => {
 		searchRef.current?.focus()
 	}
 
+	const isSearchApplied = searchVal.length > 0;
+	const hasSearchReults = filteredData.length > 0;
+
 	return (
 		<main className="IndexView">
-			<div className="search">
-				<input type="search" placeholder="search" className="search__input" ref={searchRef} onChange={inputOnChane} value={searchVal}/>
-			</div>
-			{filteredData.length > 0 && filteredData.map((item: AppData) => (
+			<header>
+				<h1 className="title">App catalog</h1>
+				<div className="search">
+					<input type="search" placeholder="search" className="search__input" ref={searchRef} onChange={inputOnChane} value={searchVal}/>
+				</div>
+			</header>
+			{isSearchApplied && hasSearchReults && (<SmallHeader>Results</SmallHeader>)}
+			{!isSearchApplied && (<SmallHeader>Featured</SmallHeader>)}
+
+
+			{hasSearchReults && filteredData.map((item: AppData) => (
 				<AppItem app={item} key={item.id}/>
 			))}
-			{filteredData.length === 0 &&
+			{!hasSearchReults &&
 			<ErrorMessage
 				action={clearSearch}
 				actionLabel="Clear search">
