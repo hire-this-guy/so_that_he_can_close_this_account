@@ -1,46 +1,29 @@
-# Getting Started with Create React App
+# Running the app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The app is deployed to [netlify](https://app-catalog.netlify.app/) but since I could not find a quick and easy way to deploy nestjs app it still expects to find the api locally. It defaults to localhost:3000 but it can be changed with an env variable.
 
-## Available Scripts
+```
+REACT_APP_APIBASE=https://api.host yarn start
+```
 
-In the project directory, you can run:
+# The process
 
-### `yarn start`
+I started with researching existing app catalogs and the likes addressed to tech-savvy users (github marketplace, azure marketplace, npm, fdorid, helm charts, github and gitlab repo pages). My goal (and taste) was to create a minimalistic design, removing as much as I could (who needs a version number on the first screen?). I also knew I wanted to feature a big search bar, like new myspace once did - because in the absence of filters this was the primary way for the users to interact with the app. I Tried to make it keyboard friendly, but it still can use a keyboard short to focus search and some polish.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+I started with the functionality, letting the form come later. Users will have more value from ugly apps working well than from half-baked pretty ones. I'm not super satisfied with the design, apparently I'm a worse designer than I thought. The next thing I would do would be to sparkle some nice animations here and there (initial loading state) and maybe replace markdown with a skeleton. Also, featured apps should show only 3 items for the users to start noticing changes earlier when they start typing in the search bar.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+I've found swr when peeking through happa code and I took the liberty of borrowing it. I ended up wasting too much time to save a request when going from initial view to app details (as all app details are already downloaded by then).
 
-### `yarn test`
+# Corners cut and what I would add
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+As no project is ever finished this one can use some additional improvements as well:
 
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- better error handling (there is no 404s and the error that shows it is not helpful)
+- make the keyboard a first-class citizen
+- add tests
+- the app is usable on the small screen but it can be better
+- nice design including further unifying readme styles with the rest of the app
+- links in markdown do work for both readme and sourcecode but the solution is far from being bulletproof
+- when searching for author users get no indication why the given app was a match which might be confusing especially for the partial matches
+- it misses some visual "wow factor". Like the animation of an app icon during navigation - moving from its position on the initial page to its target position on app details, as fdroid does.
+- probably more
