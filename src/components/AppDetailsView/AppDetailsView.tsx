@@ -13,7 +13,7 @@ interface AppItemProps {
 	appId?: AppData["id"];
 }
 
-const AppDetails: React.FC<AppItemProps> = ({ appId }) => {
+const AppDetailsView: React.FC<AppItemProps> = ({ appId }) => {
 	const { allAppsData } = useContext(AllAppsDataContext);
 
 	// TODO use memo?
@@ -86,4 +86,4 @@ const AppDetails: React.FC<AppItemProps> = ({ appId }) => {
 	);
 };
 
-export default AppDetails;
+export default AppDetailsView;

@@ -9,7 +9,7 @@ import "../node_modules/github-markdown-css/github-markdown.css";
 
 import IndexView from "./components/IndexView/IndexView";
 import { AllAppsDataProvider } from "./components/AllAppsDataProvider";
-import AppDetails from "./components/AppDetailsView/AppDetails";
+import AppDetailsView from "./components/AppDetailsView/AppDetailsView";
 
 const Main = () => {
 	return (
@@ -27,7 +27,7 @@ const Main = () => {
 							exact
 							path="/app/:appId"
 							render={(props) => {
-								return <AppDetails appId={props.match.params.appId} />;
+								return <AppDetailsView appId={props.match.params.appId} />;
 							}}
 						/>
 						<Route path="/">
