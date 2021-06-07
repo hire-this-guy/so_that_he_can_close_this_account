@@ -13,6 +13,8 @@
 	/* determined by the size of the smallest image */
 	height: 114px;
 	width: 114px;
+	display: flex;
+	align-items: center;
 }
 .AppDetailsView__img {
 	max-height: 100%;
