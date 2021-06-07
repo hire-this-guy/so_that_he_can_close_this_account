@@ -66,7 +66,7 @@ const IndexView = () => {
 				</div>
 			</header>
 
-			{isSearchApplied && hasSearchResults && (<SmallHeader>Results</SmallHeader>)}
+			{isSearchApplied && hasSearchResults && (<SmallHeader>Search results</SmallHeader>)}
 			{!isSearchApplied && (<SmallHeader>Featured</SmallHeader>)}
 
 			{hasSearchResults && <div className="app-list">
