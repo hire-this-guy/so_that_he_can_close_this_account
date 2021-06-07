@@ -8,7 +8,13 @@
 	color: inherit;
 	align-items: center;
 }
+.AppItem:hover {
+	text-decoration: none;
+}
 
+.AppItem:focus {
+	outline: 1px solid var(--c-accent);
+}
 .AppItem:focus .AppItem__img-wrapper,
 .AppItem:hover .AppItem__img-wrapper {
 	transform: scale(1.2);

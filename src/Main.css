@@ -37,6 +37,10 @@
 button {
 	cursor: pointer;
 }
+a,
+button:focus {
+	outline: none;
+}
 
 a {
 	color: var(--c-accent-faded);
