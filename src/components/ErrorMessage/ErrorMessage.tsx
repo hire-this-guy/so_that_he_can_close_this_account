@@ -2,7 +2,6 @@ import React from "react";
 import "./ErrorMessage.css";
 
 interface ErrorMessageProps {
-	children: unknown;
 	action?: Function;
 	actionLabel?: string;
 }

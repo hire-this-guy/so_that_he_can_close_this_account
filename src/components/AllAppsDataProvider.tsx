@@ -6,11 +6,11 @@ const AllAppsDataContext = React.createContext<{
 	setAllAppsData: Dispatch<SetStateAction<AppData[]>>;
 }>({ allAppsData: [], setAllAppsData: () => {} });
 
-const AllAppsDataProvider = (props: { children: React.ReactNode }) => {
+const AllAppsDataProvider: React.FC = ({children}) => {
 	const [allAppsData, setAllAppsData] = useState<AppData[]>([]);
 	return (
 		<AllAppsDataContext.Provider value={{ allAppsData, setAllAppsData }}>
-			{props.children}
+			{children}
 		</AllAppsDataContext.Provider>
 	);
 };
