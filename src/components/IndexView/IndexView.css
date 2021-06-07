@@ -15,11 +15,10 @@
 }
 
 .search {
-	margin: 1em;
+	margin: 1em 0;
 	display: flex;
-	padding-left: 1em;
-	padding-right: 1em;
 }
+
 .search__input {
 	box-shadow: none;
 	border: none;
@@ -40,11 +39,11 @@
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;
 		grid-template-rows: 1fr 1fr 1fr;
-		gap: 1em;
+		gap: var(--spacing);
 	}
 	.AppItem {
 		flex-direction: column;
-		margin-top: 0;
+		margin: 0;
 	}
 
 	.AppItem__img-wrapper {

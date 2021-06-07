@@ -30,7 +30,7 @@ const MarkdownView: React.FC<MarkdownViewProps> = ({ url, className}) => {
     }
 
     const MarkdownLink = (elem: React.ComponentPropsWithoutRef<'a'>) => (
-        <a href={absolutizeUrl(url, elem.href)}>
+        <a href={absolutizeUrl(url, elem.href)} className="a-lookalike">
             {elem.children}
         </a>
     )

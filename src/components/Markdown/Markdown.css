@@ -2,3 +2,16 @@
 .markdown-body {
 	font-family: inherit;
 }
+/* TODO remove duplication with main styles */
+.markdown-body a {
+	color: var(--c-accent-faded);
+	text-decoration: none;
+}
+.markdown-body a:hover,
+.markdown-body a:focus {
+	text-decoration: underline;
+}
+
+.markdown-body hr {
+	color: var(--c-pale);
+}

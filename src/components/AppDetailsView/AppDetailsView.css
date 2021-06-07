@@ -28,3 +28,12 @@
 .AppDetailsView__readme {
 	margin-top: 4em;
 }
+.AppDetailsView__meta {
+	padding: var(--spacing-small) 0;
+	border-top: 1px solid var(--c-pale);
+}
+.AppDetailsView__meta-item {
+	display: inline-block;
+	margin-left: var(--spacing-small);
+	margin-right: var(--spacing-small);
+}

@@ -62,16 +62,16 @@ const AppDetailsView: React.FC<AppItemProps> = ({ appId }) => {
 						/>
 					</div>
 					<h1 className="AppDetailsView__title">{dataToDisplay.name}</h1>
-					<p className="AppDetailsView__description">
+					<p>
 						{dataToDisplay.description}
 					</p>
 
-					<p className="AppDetailsView__description">
+					<p className="AppDetailsView__meta">
 						{dataToDisplay.author && (
-							<span>author: {dataToDisplay.author} </span>
+							<span className="AppDetailsView__meta-item">author: {dataToDisplay.author}</span>
 						)}
-						version: {dataToDisplay.version}
-						{dataToDisplay.url && (<> <a href={dataToDisplay.url}>homepage</a></>)}
+						<span className="AppDetailsView__meta-item">version: {dataToDisplay.version}</span>
+						{dataToDisplay.url && (<a href={dataToDisplay.url} className="AppDetailsView__meta-item">homepage</a>)}
 					</p>
 					<button className="button--primary">Install</button>
 				</header>

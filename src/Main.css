@@ -27,6 +27,7 @@
 
 	/* spacing */
 	--spacing: 2em;
+	--spacing-small: 1em;
 }
 
 * {
@@ -35,4 +36,13 @@
 
 button {
 	cursor: pointer;
+}
+
+a {
+	color: var(--c-accent-faded);
+	text-decoration: none;
+}
+a:hover,
+a:focus {
+	text-decoration: underline;
 }
