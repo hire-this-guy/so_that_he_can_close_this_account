@@ -71,7 +71,7 @@ const AppDetailsView: React.FC<AppItemProps> = ({ appId }) => {
 							<span>author: {dataToDisplay.author} </span>
 						)}
 						version: {dataToDisplay.version}
-						{dataToDisplay.url && <a href={dataToDisplay.url}>homepage</a>}
+						{dataToDisplay.url && (<> <a href={dataToDisplay.url}>homepage</a></>)}
 					</p>
 					<button className="button--primary">Install</button>
 				</header>
