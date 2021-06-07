@@ -6,6 +6,7 @@ import { rawFetcher } from "../../SWRConfig";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import Loading from "../Loading/Loading";
 import { absolutizeUrl } from "./absolutizeUrl";
+import "./Markdown.css";
 
 interface MarkdownViewProps {
     url: string;
