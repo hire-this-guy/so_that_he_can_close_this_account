@@ -1,6 +1,4 @@
 .AppItem {
-	--spacing: 2em;
-
 	display: flex;
 	text-decoration: none;
 	border: 1px solid var(--c-line);
@@ -8,11 +6,10 @@
 	margin: 1em 0;
 	padding: var(--spacing);
 	color: inherit;
-	/*transition: box-shaddow var(--t-normal);*/
+	align-items: center;
 }
-/*.AppItem:hover {*/
-/*	box-shadow:0 2px 4px -2px var(--c-light);*/
-/*}*/
+
+.AppItem:focus .AppItem__img-wrapper,
 .AppItem:hover .AppItem__img-wrapper {
 	transform: scale(1.2);
 }
@@ -38,4 +35,4 @@
 .AppItem__name {
 	font-weight: normal;
 	margin-top: 0;
-} /* TODO normalization */
+}

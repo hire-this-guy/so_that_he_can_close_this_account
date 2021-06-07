@@ -1,14 +1,19 @@
 .IndexView {
-	width: 60%;
+	width: 80%;
 	max-width: 60em;
 	margin: 0 auto;
 }
+.header {
+	margin-bottom: 6em;
+}
+
 .title {
 	font-size: 6em;
 	font-weight: 100;
-	margin: 2em 0;
+	margin: 1em 0;
 	text-align: center;
 }
+
 .search {
 	margin: 1em;
 	display: flex;
@@ -24,4 +29,35 @@
 	align-self: center;
 	margin: 0 auto;
 	flex-grow: 2;
+}
+
+.search__input::placeholder {
+	font-weight: 200;
+}
+
+@media screen and (min-width: 700px) {
+	.app-list {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-rows: 1fr 1fr 1fr;
+		gap: 1em;
+	}
+	.AppItem {
+		flex-direction: column;
+		margin-top: 0;
+	}
+
+	.AppItem__img-wrapper {
+		align-self: center;
+		margin-top: calc(var(--spacing) * 0.5);
+	}
+	.AppItem__info {
+		margin-top: var(--spacing);
+		margin-left: 0;
+		text-align: center;
+	}
+
+	.AppItem__name {
+		font-size: 1em;
+	}
 }

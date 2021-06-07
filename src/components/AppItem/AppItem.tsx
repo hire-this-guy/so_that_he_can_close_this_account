@@ -15,11 +15,10 @@ const AppItem: React.FC<AppItemProps> = ({ app }) => {
 			title={`Version: ${app.version}`}
 		>
 			<div className="AppItem__img-wrapper">
-				<img src={app.iconURL} alt={app.name} className="AppItem__img" />
+				<img src={app.iconURL} className="AppItem__img" />
 			</div>
 			<div className="AppItem__info">
 				<h2 className="AppItem__name">{app.name}</h2>
-				{app.author && <div>{app.author}</div>}
 			</div>
 		</Link>
 	);

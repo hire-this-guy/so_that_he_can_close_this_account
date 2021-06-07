@@ -24,6 +24,9 @@
 
 	/* Font sizes */
 	--fs-big: 2em;
+
+	/* spacing */
+	--spacing: 2em;
 }
 
 * {
