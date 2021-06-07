@@ -13,7 +13,7 @@ const ErrorMessage: React.FC<ErrorMessageProps> = ({
 }) => {
 	return (
 		<div className="ErrorMessage">
-			<p className="ErrorMassage__text">{children}</p>
+			<p className="ErrorMessage__text">{children}</p>
 			{action && (
 				<button onClick={() => action()} className="ErrorMessage__button">
 					{actionLabel}
