@@ -15,6 +15,7 @@ const AppItem: React.FC<AppItemProps> = ({ app }) => {
 			title={`Version: ${app.version}`}
 		>
 			<div className="AppItem__img-wrapper">
+				{/* eslint-disable-next-line jsx-a11y/alt-text */}
 				<img src={app.iconURL} className="AppItem__img" />
 			</div>
 			<div className="AppItem__info">
